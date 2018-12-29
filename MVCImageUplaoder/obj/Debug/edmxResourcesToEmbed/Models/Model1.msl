@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="db_imgModel1StoreContainer" CdmEntityContainer="db_imgEntities1">
+    <EntitySetMapping Name="tbl_file">
+      <EntityTypeMapping TypeName="db_imgModel1.tbl_file">
+        <MappingFragment StoreEntitySet="tbl_file">
+          <ScalarProperty Name="file_id" ColumnName="file_id" />
+          <ScalarProperty Name="file_name" ColumnName="file_name" />
+          <ScalarProperty Name="file_ext" ColumnName="file_ext" />
+          <ScalarProperty Name="file_path" ColumnName="file_path" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_get_all_files" FunctionName="db_imgModel1.Store.sp_get_all_files">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_imgModel1.sp_get_all_files_Result">
+          <ScalarProperty Name="file_id" ColumnName="file_id" />
+          <ScalarProperty Name="file_name" ColumnName="file_name" />
+          <ScalarProperty Name="file_ext" ColumnName="file_ext" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_get_file_details" FunctionName="db_imgModel1.Store.sp_get_file_details">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_imgModel1.sp_get_file_details_Result">
+          <ScalarProperty Name="file_id" ColumnName="file_id" />
+          <ScalarProperty Name="file_name" ColumnName="file_name" />
+          <ScalarProperty Name="file_ext" ColumnName="file_ext" />
+          <ScalarProperty Name="file_path" ColumnName="file_path" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_insert_file" FunctionName="db_imgModel1.Store.sp_insert_file" />
+  </EntityContainerMapping>
+</Mapping>

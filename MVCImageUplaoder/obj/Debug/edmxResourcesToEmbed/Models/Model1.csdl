@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_imgModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tbl_file">
+    <Key>
+      <PropertyRef Name="file_id" />
+    </Key>
+    <Property Name="file_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="file_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="file_ext" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="file_path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="db_imgEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tbl_file" EntityType="Self.tbl_file" />
+    <FunctionImport Name="sp_get_all_files" ReturnType="Collection(db_imgModel1.sp_get_all_files_Result)" />
+    <FunctionImport Name="sp_get_file_details" ReturnType="Collection(db_imgModel1.sp_get_file_details_Result)">
+      <Parameter Name="file_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_insert_file">
+      <Parameter Name="file_name" Mode="In" Type="String" />
+      <Parameter Name="file_ext" Mode="In" Type="String" />
+      <Parameter Name="file_path" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="sp_get_all_files_Result">
+    <Property Type="Int32" Name="file_id" Nullable="false" />
+    <Property Type="String" Name="file_name" Nullable="false" />
+    <Property Type="String" Name="file_ext" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="sp_get_file_details_Result">
+    <Property Type="Int32" Name="file_id" Nullable="false" />
+    <Property Type="String" Name="file_name" Nullable="false" />
+    <Property Type="String" Name="file_ext" Nullable="false" />
+    <Property Type="String" Name="file_path" Nullable="false" />
+  </ComplexType>
+</Schema>
